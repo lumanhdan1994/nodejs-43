@@ -180,6 +180,7 @@ INSERT INTO sub_food (sub_name, sub_price, food_id) VALUES
 
 # orders table
 CREATE TABLE orders(
+	order_id INT PRIMARY KEY AUTO_INCREMENT,
 	user_id INT,
 	FOREIGN KEY(user_id) REFERENCES users(user_id),
 	food_id INT,
@@ -241,8 +242,6 @@ ON o.user_id = u.user_id
 GROUP BY u.full_name
 ORDER BY counts DESC
 LIMIT 1
-
-DROP DATABASE studen;
 
 -- cau 4: Tìm người dùng không hoạt động trong hệ thống (không đặt hàng, không like, không đánh giá nhà hàng).
 SELECT * FROM users AS u
